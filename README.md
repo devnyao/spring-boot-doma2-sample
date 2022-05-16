@@ -12,6 +12,31 @@ $ git clone https://github.com/miyabayt/spring-boot-doma2-sample.git
 
 ### 開発環境（IntelliJ）
 
+#### パッケージの最新化 
+
+brew reinstall docker
+brew reinstall gradle
+gradle wrapper
+エラー箇所を手当たり次第潰す。
+
+
+java 11
+Gradle 7.4.2
+Groovy 4.0.2
+Docker  20.10.14
+docker-compose 2.5.0
+
+IntellJのプロジェクト構造は11を指定。
+Preferenceからアノテーション処理の有効化。
+
+![アノテーション処理の有効化](./img/enable_annotation.png)
+
+同じくプラグインからLombokを検索してインストールする。
+
+sqlファイルをクラスファイル出力先に配置し直す。
+
+
+
 #### 必要なプラグイン・設定
 
 - Lombok pluginをインストールする。

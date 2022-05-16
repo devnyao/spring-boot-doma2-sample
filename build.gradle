@@ -2,13 +2,15 @@ buildscript {
     ext {
         springBootVersion = "2.0.6.RELEASE"
         spockVersion = "1.2-groovy-2.5"
-        groovyVersion = "2.5.3"
-        lombokVersion = "1.18.2"
-        dockerComposePluginVersion = "0.6.6"
+        // https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all
+        groovyVersion = "3.0.10"
+        // https://projectlombok.org/changelog
+        lombokVersion = "1.18.24"
+        dockerComposePluginVersion = "0.16.4"
     }
     repositories {
         mavenCentral()
-        jcenter()
+        // jcenter()
     }
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
@@ -40,11 +42,12 @@ subprojects {
 
     repositories {
         mavenCentral()
-        jcenter()
+        // jcenter()
 
         // jasperreports
-        maven { url "http://jasperreports.sourceforge.net/maven2/" }
-        maven { url "http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/" }
+        // https://b1san-blog.com/post/spring/spring-jasperreports/
+        // maven { url "https://jasperreports.sourceforge.net/maven2/" }
+        maven { url "https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/" }
     }
 
     dependencyManagement {
@@ -83,16 +86,17 @@ subprojects {
         annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
         testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
 
-        testCompile "org.assertj:assertj-core"
-        testCompile "org.spockframework:spock-core:${spockVersion}"
-        testCompile "org.mockito:mockito-core"
+        testImplementation "org.assertj:assertj-core"
+        testImplementation "org.spockframework:spock-core:${spockVersion}"
+        testImplementation "org.mockito:mockito-core"
     }
 }
 
 task startFakeSmtpServer(type: JavaExec) {
     classpath = buildscript.configurations.classpath
     args = ["--start-server", "-m"] // -m (memory-mode)
-    main = "com.nilhcem.fakesmtp.FakeSMTP"
+    // https://docs.gradle.org/7.4.2/dsl/org.gradle.api.tasks.JavaExec.html#org.gradle.api.tasks.JavaExec:main
+    mainClass = "com.nilhcem.fakesmtp.FakeSMTP"
 }
 
 apply plugin: "docker-compose"
@@ -120,6 +124,8 @@ codegen {
     controllerPackageName = "com.sample.web.admin.controller.html"
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = "4.10.2"
+// https://qiita.com/Yu-s/items/13a6a8db8dc191bb3b42
+// task wrapper(type: Wrapper) {
+wrapper {
+    gradleVersion = "7.4.2"
 }

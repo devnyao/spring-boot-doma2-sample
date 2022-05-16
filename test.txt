@@ -1,0 +1,22 @@
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :buildSrc:assemble UP-TO-DATE
+> Task :buildSrc:compileTestJava NO-SOURCE
+> Task :buildSrc:compileTestGroovy NO-SOURCE
+> Task :buildSrc:processTestResources NO-SOURCE
+> Task :buildSrc:testClasses UP-TO-DATE
+> Task :buildSrc:test NO-SOURCE
+> Task :buildSrc:check UP-TO-DATE
+> Task :buildSrc:build UP-TO-DATE
+> Task :sample-common:compileJava UP-TO-DATE
+> Task :sample-common:compileGroovy NO-SOURCE
+> Task :sample-common:processResources NO-SOURCE
+> Task :sample-common:classes UP-TO-DATE
+> Task :sample-common:jar UP-TO-DATE
+> Task :sample-domain:processResources UP-TO-DATE
+
+> Task :sample-domain:compileJava FAILED
+7 actionable tasks: 1 executed, 6 up-to-date
