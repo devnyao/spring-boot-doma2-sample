@@ -1,4 +1,7 @@
+// プロダクトコードではなく、ビルドスクリプト( build.gradle )内で利用するプラグインや依存関係の定義については buildscript に定義
+// https://qiita.com/hatimiti/items/a127311d739c9d3e0045#buildscript-プロパティ
 buildscript {
+    // 拡張プロパティの一括設定
     ext {
         springBootVersion = "2.0.6.RELEASE"
         spockVersion = "1.2-groovy-2.5"
@@ -8,9 +11,15 @@ buildscript {
         lombokVersion = "1.18.24"
         dockerComposePluginVersion = "0.16.4"
     }
+
+    // External dependencies for the build script
+    // ビルドスクリプトで外部ライブラリを使用する場合はそのリポジトリとクラスパスを指定する。
+    // https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:build_script_external_dependencies
+    // OSSなどを利用する場合は、プロダクトコード同様に repositories と dependencies に定義。
+    // https://qiita.com/hatimiti/items/a127311d739c9d3e0045#buildscript-プロパティ
+
     repositories {
         mavenCentral()
-        // jcenter()
     }
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
@@ -19,19 +28,48 @@ buildscript {
     }
 }
 
-subprojects {
-    apply plugin: "java"
-    apply plugin: "groovy"
-    apply plugin: "idea"
-    apply plugin: "eclipse"
-    apply plugin: "org.springframework.boot"
-    apply plugin: "io.spring.dependency-management"
 
+// https://docs.gradle.org/current/dsl/org.gradle.api.Project.html
+// https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#org.gradle.api.Project:subprojects(groovy.lang.Closure)
+// subprojects内の設定は各プロジェクト共通に適用される。
+subprojects {
+
+    plugins {
+        id 'application'
+        id 'groovy'
+        // http://gradle.monochromeroad.com/docs/userguide/idea_plugin.html
+        // IntelliJ IDEAが使用するファイルを生成し、プロジェクトをIDEA(File - Open Project)で開けるようにします。
+        id 'idea'
+        // http://gradle.monochromeroad.com/docs/userguide/eclipse_plugin.html
+        // eclipseのコンテナを指定するために使用。
+        id 'eclipse'
+        id 'org.springframework.boot'
+        // GradleでBOMを実現するためのもの。
+        // https://create-something.hatenadiary.jp/entry/2015/05/08/063000
+        id 'io.spring.dependency-management'
+    }
+
+// 古い記述としてコメント化
+// apply plugin: "java"
+// apply plugin: "groovy"
+// apply plugin: "idea"
+// apply plugin: "eclipse"
+// apply plugin: "org.springframework.boot"
+// apply plugin: "io.spring.dependency-management"
+
+    // Javaのソースをコンパイルする際に使用するJavaのバージョン
     sourceCompatibility = 11
     targetCompatibility = 11
+    // javaソースファイルのエンコードをutf-8にする。[]内は展開される。
     [compileJava, compileTestJava, compileGroovy, compileTestGroovy]*.options*.encoding = "UTF-8"
+    // 警告表示を全て有効にする。
+    // https://docs.oracle.com/javase/jp/11/tools/javac.html#GUID-AEEC9F07-CB49-4E96-8BC7-BCC2C7F725C9
     [compileJava, compileTestJava, compileGroovy, compileTestGroovy]*.options*.compilerArgs = ["-Xlint:all"]
-
+    // コンパイル・実行時にソースファイルを指定。
+    // Javaソースファイルとリソースファイルの指定が可能。
+    // Javaプラグインは、mainとtestという二つの標準ソースセットを定義します。
+    // mainソースセットは、コンパイルされJARファイルを構成する製品ソースコードを含みます。
+    // testソースセットは、コンパイルされJUnitやTestNGで実行されるユニットテストコードを含みます。
     sourceSets {
         test.resources {
             // テスト時にsrc/main/resourcesにある設定ファイルを使用する
@@ -47,42 +85,53 @@ subprojects {
         // jasperreports
         // https://b1san-blog.com/post/spring/spring-jasperreports/
         // maven { url "https://jasperreports.sourceforge.net/maven2/" }
+        // ホスト先URLの変更。
         maven { url "https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/" }
     }
 
     dependencyManagement {
         imports {
+            // https://spring.pleiades.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/
+            //
             mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
         }
     }
 
     idea {
+        // https://docs.gradle.org/current/dsl/org.gradle.plugins.ide.idea.model.IdeaModule.html
         module {
+            // if you love browsing Javadoc
             downloadJavadoc = true
+            // //and love reading sources :)
             downloadSources = true
-
+            // //if you prefer different output folders
             inheritOutputDirs = false
-            outputDir = compileJava.destinationDir
-            testOutputDir = compileTestJava.destinationDir
+            // 出力先を指定。desctinationDirはdepricatedとなっている。他のして方法の検討が必要。
+            // outputDir = compileJava.destinationDir
+            // testOutputDir = compileTestJava.destinationDir
         }
     }
-
+    // https://docs.gradle.org/current/dsl/org.gradle.plugins.ide.eclipse.model.EclipseClasspath.html
+    //
     eclipse {
         classpath {
+            // コンテナを除外
             containers.remove("org.eclipse.jdt.launching.JRE_CONTAINER")
+            // Java11用のコンテナを指定 if you want to append extra containers:
             containers "org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"
         }
     }
-
+    // アプリケーションを実行するbootRunタスクの設定の追加
     bootRun {
         sourceResources sourceSets.main
         jvmArgs "-XX:TieredStopAtLevel=1", "-Xverify:none"
     }
-
+    // groovyバージョンの上書き
     ext["groovy.version"] = groovyVersion
     
     dependencies {
         compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        // アノテーションを利用するライブラリlombokの設定。
         annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
         testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
 
@@ -91,7 +140,7 @@ subprojects {
         testImplementation "org.mockito:mockito-core"
     }
 }
-
+// メール送信テスト用SMTPの起動タスク
 task startFakeSmtpServer(type: JavaExec) {
     classpath = buildscript.configurations.classpath
     args = ["--start-server", "-m"] // -m (memory-mode)
@@ -99,13 +148,21 @@ task startFakeSmtpServer(type: JavaExec) {
     mainClass = "com.nilhcem.fakesmtp.FakeSMTP"
 }
 
-apply plugin: "docker-compose"
+plugins {
+    id 'docker-compose'
+}
+//apply plugin: "docker-compose"
 
 dockerCompose {
+    // 使用するdocker-composeのパスの指定。
     useComposeFiles = ["docker/docker-compose.yml"]
 }
 
-apply plugin: com.sample.CodeGenPlugin
+plugins {
+    id 'com.sample.CodeGenPlugin'
+}
+// apply plugin: com.sample.CodeGenPlugin
+// https://spring-boot-doma2-sample.readthedocs.io/ja/master/codegen.html
 
 codegen {
     domainProjectName = "sample-domain"
@@ -126,6 +183,10 @@ codegen {
 
 // https://qiita.com/Yu-s/items/13a6a8db8dc191bb3b42
 // task wrapper(type: Wrapper) {
-wrapper {
-    gradleVersion = "7.4.2"
+//wrapper {
+//    gradleVersion = "7.4.2"
+//}
+
+tasks.named('wrapper'){
+    gradleVersion='7.4.2'
 }

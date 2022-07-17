@@ -1,0 +1,344 @@
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :buildSrc:assemble UP-TO-DATE
+> Task :buildSrc:compileTestJava NO-SOURCE
+> Task :buildSrc:compileTestGroovy NO-SOURCE
+> Task :buildSrc:processTestResources NO-SOURCE
+> Task :buildSrc:testClasses UP-TO-DATE
+> Task :buildSrc:test NO-SOURCE
+> Task :buildSrc:check UP-TO-DATE
+> Task :buildSrc:build UP-TO-DATE
+
+> Task :tasks
+
+------------------------------------------------------------
+Tasks runnable from root project 'spring-boot-doma2-sample'
+------------------------------------------------------------
+
+Application tasks
+-----------------
+sample-batch:bootRun - Runs this project as a Spring Boot application.
+sample-common:bootRun - Runs this project as a Spring Boot application.
+sample-domain:bootRun - Runs this project as a Spring Boot application.
+sample-web-admin:bootRun - Runs this project as a Spring Boot application.
+sample-web-base:bootRun - Runs this project as a Spring Boot application.
+sample-web-front:bootRun - Runs this project as a Spring Boot application.
+
+Build tasks
+-----------
+sample-batch:assemble - Assembles the outputs of this project.
+sample-common:assemble - Assembles the outputs of this project.
+sample-domain:assemble - Assembles the outputs of this project.
+sample-web-admin:assemble - Assembles the outputs of this project.
+sample-web-base:assemble - Assembles the outputs of this project.
+sample-web-front:assemble - Assembles the outputs of this project.
+sample-batch:bootJar - Assembles an executable jar archive containing the main classes and their dependencies.
+sample-common:bootJar - Assembles an executable jar archive containing the main classes and their dependencies.
+sample-domain:bootJar - Assembles an executable jar archive containing the main classes and their dependencies.
+sample-web-admin:bootJar - Assembles an executable jar archive containing the main classes and their dependencies.
+sample-web-base:bootJar - Assembles an executable jar archive containing the main classes and their dependencies.
+sample-web-front:bootJar - Assembles an executable jar archive containing the main classes and their dependencies.
+sample-batch:build - Assembles and tests this project.
+sample-common:build - Assembles and tests this project.
+sample-domain:build - Assembles and tests this project.
+sample-web-admin:build - Assembles and tests this project.
+sample-web-base:build - Assembles and tests this project.
+sample-web-front:build - Assembles and tests this project.
+sample-batch:buildDependents - Assembles and tests this project and all projects that depend on it.
+sample-common:buildDependents - Assembles and tests this project and all projects that depend on it.
+sample-domain:buildDependents - Assembles and tests this project and all projects that depend on it.
+sample-web-admin:buildDependents - Assembles and tests this project and all projects that depend on it.
+sample-web-base:buildDependents - Assembles and tests this project and all projects that depend on it.
+sample-web-front:buildDependents - Assembles and tests this project and all projects that depend on it.
+sample-batch:buildNeeded - Assembles and tests this project and all projects it depends on.
+sample-common:buildNeeded - Assembles and tests this project and all projects it depends on.
+sample-domain:buildNeeded - Assembles and tests this project and all projects it depends on.
+sample-web-admin:buildNeeded - Assembles and tests this project and all projects it depends on.
+sample-web-base:buildNeeded - Assembles and tests this project and all projects it depends on.
+sample-web-front:buildNeeded - Assembles and tests this project and all projects it depends on.
+sample-batch:classes - Assembles main classes.
+sample-common:classes - Assembles main classes.
+sample-domain:classes - Assembles main classes.
+sample-web-admin:classes - Assembles main classes.
+sample-web-base:classes - Assembles main classes.
+sample-web-front:classes - Assembles main classes.
+sample-batch:clean - Deletes the build directory.
+sample-common:clean - Deletes the build directory.
+sample-domain:clean - Deletes the build directory.
+sample-web-admin:clean - Deletes the build directory.
+sample-web-base:clean - Deletes the build directory.
+sample-web-front:clean - Deletes the build directory.
+sample-batch:jar - Assembles a jar archive containing the main classes.
+sample-common:jar - Assembles a jar archive containing the main classes.
+sample-domain:jar - Assembles a jar archive containing the main classes.
+sample-web-admin:jar - Assembles a jar archive containing the main classes.
+sample-web-base:jar - Assembles a jar archive containing the main classes.
+sample-web-front:jar - Assembles a jar archive containing the main classes.
+sample-batch:testClasses - Assembles test classes.
+sample-common:testClasses - Assembles test classes.
+sample-domain:testClasses - Assembles test classes.
+sample-web-admin:testClasses - Assembles test classes.
+sample-web-base:testClasses - Assembles test classes.
+sample-web-front:testClasses - Assembles test classes.
+
+Build Setup tasks
+-----------------
+init - Initializes a new Gradle build.
+wrapper - Generates Gradle wrapper files.
+
+Docker tasks
+------------
+composeBuild - Builds images for services of docker-compose project
+composeDown - Stops and removes containers of docker-compose project (only if stopContainers is set to true)
+composeDownForced - Stops and removes containers of docker-compose project
+composeDownForcedOnFailure - Stops and removes containers of docker-compose project
+composeLogs - Stores log output from services in containers of docker-compose project
+composePull - Builds and pulls images of docker-compose project
+composePush - Pushes images for services of docker-compose project
+composeUp - Builds and starts containers of docker-compose project
+
+Documentation tasks
+-------------------
+sample-batch:groovydoc - Generates Groovydoc API documentation for the main source code.
+sample-common:groovydoc - Generates Groovydoc API documentation for the main source code.
+sample-domain:groovydoc - Generates Groovydoc API documentation for the main source code.
+sample-web-admin:groovydoc - Generates Groovydoc API documentation for the main source code.
+sample-web-base:groovydoc - Generates Groovydoc API documentation for the main source code.
+sample-web-front:groovydoc - Generates Groovydoc API documentation for the main source code.
+sample-batch:javadoc - Generates Javadoc API documentation for the main source code.
+sample-common:javadoc - Generates Javadoc API documentation for the main source code.
+sample-domain:javadoc - Generates Javadoc API documentation for the main source code.
+sample-web-admin:javadoc - Generates Javadoc API documentation for the main source code.
+sample-web-base:javadoc - Generates Javadoc API documentation for the main source code.
+sample-web-front:javadoc - Generates Javadoc API documentation for the main source code.
+
+Help tasks
+----------
+buildEnvironment - Displays all buildscript dependencies declared in root project 'spring-boot-doma2-sample'.
+sample-batch:buildEnvironment - Displays all buildscript dependencies declared in project ':sample-batch'.
+sample-common:buildEnvironment - Displays all buildscript dependencies declared in project ':sample-common'.
+sample-domain:buildEnvironment - Displays all buildscript dependencies declared in project ':sample-domain'.
+sample-web-admin:buildEnvironment - Displays all buildscript dependencies declared in project ':sample-web-admin'.
+sample-web-base:buildEnvironment - Displays all buildscript dependencies declared in project ':sample-web-base'.
+sample-web-front:buildEnvironment - Displays all buildscript dependencies declared in project ':sample-web-front'.
+dependencies - Displays all dependencies declared in root project 'spring-boot-doma2-sample'.
+sample-batch:dependencies - Displays all dependencies declared in project ':sample-batch'.
+sample-common:dependencies - Displays all dependencies declared in project ':sample-common'.
+sample-domain:dependencies - Displays all dependencies declared in project ':sample-domain'.
+sample-web-admin:dependencies - Displays all dependencies declared in project ':sample-web-admin'.
+sample-web-base:dependencies - Displays all dependencies declared in project ':sample-web-base'.
+sample-web-front:dependencies - Displays all dependencies declared in project ':sample-web-front'.
+dependencyInsight - Displays the insight into a specific dependency in root project 'spring-boot-doma2-sample'.
+sample-batch:dependencyInsight - Displays the insight into a specific dependency in project ':sample-batch'.
+sample-common:dependencyInsight - Displays the insight into a specific dependency in project ':sample-common'.
+sample-domain:dependencyInsight - Displays the insight into a specific dependency in project ':sample-domain'.
+sample-web-admin:dependencyInsight - Displays the insight into a specific dependency in project ':sample-web-admin'.
+sample-web-base:dependencyInsight - Displays the insight into a specific dependency in project ':sample-web-base'.
+sample-web-front:dependencyInsight - Displays the insight into a specific dependency in project ':sample-web-front'.
+sample-batch:dependencyManagement - Displays the dependency management declared in project ':sample-batch'.
+sample-common:dependencyManagement - Displays the dependency management declared in project ':sample-common'.
+sample-domain:dependencyManagement - Displays the dependency management declared in project ':sample-domain'.
+sample-web-admin:dependencyManagement - Displays the dependency management declared in project ':sample-web-admin'.
+sample-web-base:dependencyManagement - Displays the dependency management declared in project ':sample-web-base'.
+sample-web-front:dependencyManagement - Displays the dependency management declared in project ':sample-web-front'.
+help - Displays a help message.
+sample-batch:help - Displays a help message.
+sample-common:help - Displays a help message.
+sample-domain:help - Displays a help message.
+sample-web-admin:help - Displays a help message.
+sample-web-base:help - Displays a help message.
+sample-web-front:help - Displays a help message.
+javaToolchains - Displays the detected java toolchains.
+sample-batch:javaToolchains - Displays the detected java toolchains.
+sample-common:javaToolchains - Displays the detected java toolchains.
+sample-domain:javaToolchains - Displays the detected java toolchains.
+sample-web-admin:javaToolchains - Displays the detected java toolchains.
+sample-web-base:javaToolchains - Displays the detected java toolchains.
+sample-web-front:javaToolchains - Displays the detected java toolchains.
+outgoingVariants - Displays the outgoing variants of root project 'spring-boot-doma2-sample'.
+sample-batch:outgoingVariants - Displays the outgoing variants of project ':sample-batch'.
+sample-common:outgoingVariants - Displays the outgoing variants of project ':sample-common'.
+sample-domain:outgoingVariants - Displays the outgoing variants of project ':sample-domain'.
+sample-web-admin:outgoingVariants - Displays the outgoing variants of project ':sample-web-admin'.
+sample-web-base:outgoingVariants - Displays the outgoing variants of project ':sample-web-base'.
+sample-web-front:outgoingVariants - Displays the outgoing variants of project ':sample-web-front'.
+projects - Displays the sub-projects of root project 'spring-boot-doma2-sample'.
+sample-batch:projects - Displays the sub-projects of project ':sample-batch'.
+sample-common:projects - Displays the sub-projects of project ':sample-common'.
+sample-domain:projects - Displays the sub-projects of project ':sample-domain'.
+sample-web-admin:projects - Displays the sub-projects of project ':sample-web-admin'.
+sample-web-base:projects - Displays the sub-projects of project ':sample-web-base'.
+sample-web-front:projects - Displays the sub-projects of project ':sample-web-front'.
+properties - Displays the properties of root project 'spring-boot-doma2-sample'.
+sample-batch:properties - Displays the properties of project ':sample-batch'.
+sample-common:properties - Displays the properties of project ':sample-common'.
+sample-domain:properties - Displays the properties of project ':sample-domain'.
+sample-web-admin:properties - Displays the properties of project ':sample-web-admin'.
+sample-web-base:properties - Displays the properties of project ':sample-web-base'.
+sample-web-front:properties - Displays the properties of project ':sample-web-front'.
+tasks - Displays the tasks runnable from root project 'spring-boot-doma2-sample' (some of the displayed tasks may belong to subprojects).
+sample-batch:tasks - Displays the tasks runnable from project ':sample-batch'.
+sample-common:tasks - Displays the tasks runnable from project ':sample-common'.
+sample-domain:tasks - Displays the tasks runnable from project ':sample-domain'.
+sample-web-admin:tasks - Displays the tasks runnable from project ':sample-web-admin'.
+sample-web-base:tasks - Displays the tasks runnable from project ':sample-web-base'.
+sample-web-front:tasks - Displays the tasks runnable from project ':sample-web-front'.
+
+IDE tasks
+---------
+sample-batch:cleanEclipse - Cleans all Eclipse files.
+sample-common:cleanEclipse - Cleans all Eclipse files.
+sample-domain:cleanEclipse - Cleans all Eclipse files.
+sample-web-admin:cleanEclipse - Cleans all Eclipse files.
+sample-web-base:cleanEclipse - Cleans all Eclipse files.
+sample-web-front:cleanEclipse - Cleans all Eclipse files.
+sample-batch:cleanIdea - Cleans IDEA project files (IML, IPR)
+sample-common:cleanIdea - Cleans IDEA project files (IML, IPR)
+sample-domain:cleanIdea - Cleans IDEA project files (IML, IPR)
+sample-web-admin:cleanIdea - Cleans IDEA project files (IML, IPR)
+sample-web-base:cleanIdea - Cleans IDEA project files (IML, IPR)
+sample-web-front:cleanIdea - Cleans IDEA project files (IML, IPR)
+sample-batch:eclipse - Generates all Eclipse files.
+sample-common:eclipse - Generates all Eclipse files.
+sample-domain:eclipse - Generates all Eclipse files.
+sample-web-admin:eclipse - Generates all Eclipse files.
+sample-web-base:eclipse - Generates all Eclipse files.
+sample-web-front:eclipse - Generates all Eclipse files.
+sample-batch:idea - Generates IDEA project files (IML, IPR, IWS)
+sample-common:idea - Generates IDEA project files (IML, IPR, IWS)
+sample-domain:idea - Generates IDEA project files (IML, IPR, IWS)
+sample-web-admin:idea - Generates IDEA project files (IML, IPR, IWS)
+sample-web-base:idea - Generates IDEA project files (IML, IPR, IWS)
+sample-web-front:idea - Generates IDEA project files (IML, IPR, IWS)
+
+Verification tasks
+------------------
+sample-batch:check - Runs all checks.
+sample-common:check - Runs all checks.
+sample-domain:check - Runs all checks.
+sample-web-admin:check - Runs all checks.
+sample-web-base:check - Runs all checks.
+sample-web-front:check - Runs all checks.
+sample-batch:test - Runs the test suite.
+sample-common:test - Runs the test suite.
+sample-domain:test - Runs the test suite.
+sample-web-admin:test - Runs the test suite.
+sample-web-base:test - Runs the test suite.
+sample-web-front:test - Runs the test suite.
+
+Other tasks
+-----------
+sample-batch:cleanEclipseClasspath
+sample-common:cleanEclipseClasspath
+sample-domain:cleanEclipseClasspath
+sample-web-admin:cleanEclipseClasspath
+sample-web-base:cleanEclipseClasspath
+sample-web-front:cleanEclipseClasspath
+sample-batch:cleanEclipseJdt
+sample-common:cleanEclipseJdt
+sample-domain:cleanEclipseJdt
+sample-web-admin:cleanEclipseJdt
+sample-web-base:cleanEclipseJdt
+sample-web-front:cleanEclipseJdt
+sample-batch:cleanEclipseProject
+sample-common:cleanEclipseProject
+sample-domain:cleanEclipseProject
+sample-web-admin:cleanEclipseProject
+sample-web-base:cleanEclipseProject
+sample-web-front:cleanEclipseProject
+sample-batch:cleanIdeaModule
+sample-common:cleanIdeaModule
+sample-domain:cleanIdeaModule
+sample-web-admin:cleanIdeaModule
+sample-web-base:cleanIdeaModule
+sample-web-front:cleanIdeaModule
+codegen
+sample-batch:compileGroovy - Compiles the main Groovy source.
+sample-common:compileGroovy - Compiles the main Groovy source.
+sample-domain:compileGroovy - Compiles the main Groovy source.
+sample-web-admin:compileGroovy - Compiles the main Groovy source.
+sample-web-base:compileGroovy - Compiles the main Groovy source.
+sample-web-front:compileGroovy - Compiles the main Groovy source.
+sample-batch:compileJava - Compiles main Java source.
+sample-common:compileJava - Compiles main Java source.
+sample-domain:compileJava - Compiles main Java source.
+sample-web-admin:compileJava - Compiles main Java source.
+sample-web-base:compileJava - Compiles main Java source.
+sample-web-front:compileJava - Compiles main Java source.
+sample-batch:compileTestGroovy - Compiles the test Groovy source.
+sample-common:compileTestGroovy - Compiles the test Groovy source.
+sample-domain:compileTestGroovy - Compiles the test Groovy source.
+sample-web-admin:compileTestGroovy - Compiles the test Groovy source.
+sample-web-base:compileTestGroovy - Compiles the test Groovy source.
+sample-web-front:compileTestGroovy - Compiles the test Groovy source.
+sample-batch:compileTestJava - Compiles test Java source.
+sample-common:compileTestJava - Compiles test Java source.
+sample-domain:compileTestJava - Compiles test Java source.
+sample-web-admin:compileTestJava - Compiles test Java source.
+sample-web-base:compileTestJava - Compiles test Java source.
+sample-web-front:compileTestJava - Compiles test Java source.
+components - Displays the components produced by root project 'spring-boot-doma2-sample'. [deprecated]
+sample-batch:components - Displays the components produced by project ':sample-batch'. [deprecated]
+sample-common:components - Displays the components produced by project ':sample-common'. [deprecated]
+sample-domain:components - Displays the components produced by project ':sample-domain'. [deprecated]
+sample-web-admin:components - Displays the components produced by project ':sample-web-admin'. [deprecated]
+sample-web-base:components - Displays the components produced by project ':sample-web-base'. [deprecated]
+sample-web-front:components - Displays the components produced by project ':sample-web-front'. [deprecated]
+dependentComponents - Displays the dependent components of components in root project 'spring-boot-doma2-sample'. [deprecated]
+sample-batch:dependentComponents - Displays the dependent components of components in project ':sample-batch'. [deprecated]
+sample-common:dependentComponents - Displays the dependent components of components in project ':sample-common'. [deprecated]
+sample-domain:dependentComponents - Displays the dependent components of components in project ':sample-domain'. [deprecated]
+sample-web-admin:dependentComponents - Displays the dependent components of components in project ':sample-web-admin'. [deprecated]
+sample-web-base:dependentComponents - Displays the dependent components of components in project ':sample-web-base'. [deprecated]
+sample-web-front:dependentComponents - Displays the dependent components of components in project ':sample-web-front'. [deprecated]
+sample-batch:eclipseClasspath - Generates the Eclipse classpath file.
+sample-common:eclipseClasspath - Generates the Eclipse classpath file.
+sample-domain:eclipseClasspath - Generates the Eclipse classpath file.
+sample-web-admin:eclipseClasspath - Generates the Eclipse classpath file.
+sample-web-base:eclipseClasspath - Generates the Eclipse classpath file.
+sample-web-front:eclipseClasspath - Generates the Eclipse classpath file.
+sample-batch:eclipseJdt - Generates the Eclipse JDT settings file.
+sample-common:eclipseJdt - Generates the Eclipse JDT settings file.
+sample-domain:eclipseJdt - Generates the Eclipse JDT settings file.
+sample-web-admin:eclipseJdt - Generates the Eclipse JDT settings file.
+sample-web-base:eclipseJdt - Generates the Eclipse JDT settings file.
+sample-web-front:eclipseJdt - Generates the Eclipse JDT settings file.
+sample-batch:eclipseProject - Generates the Eclipse project file.
+sample-common:eclipseProject - Generates the Eclipse project file.
+sample-domain:eclipseProject - Generates the Eclipse project file.
+sample-web-admin:eclipseProject - Generates the Eclipse project file.
+sample-web-base:eclipseProject - Generates the Eclipse project file.
+sample-web-front:eclipseProject - Generates the Eclipse project file.
+sample-batch:ideaModule - Generates IDEA module files (IML)
+sample-common:ideaModule - Generates IDEA module files (IML)
+sample-domain:ideaModule - Generates IDEA module files (IML)
+sample-web-admin:ideaModule - Generates IDEA module files (IML)
+sample-web-base:ideaModule - Generates IDEA module files (IML)
+sample-web-front:ideaModule - Generates IDEA module files (IML)
+model - Displays the configuration model of root project 'spring-boot-doma2-sample'. [deprecated]
+sample-batch:model - Displays the configuration model of project ':sample-batch'. [deprecated]
+sample-common:model - Displays the configuration model of project ':sample-common'. [deprecated]
+sample-domain:model - Displays the configuration model of project ':sample-domain'. [deprecated]
+sample-web-admin:model - Displays the configuration model of project ':sample-web-admin'. [deprecated]
+sample-web-base:model - Displays the configuration model of project ':sample-web-base'. [deprecated]
+sample-web-front:model - Displays the configuration model of project ':sample-web-front'. [deprecated]
+prepareKotlinBuildScriptModel
+sample-batch:processResources - Processes main resources.
+sample-common:processResources - Processes main resources.
+sample-domain:processResources - Processes main resources.
+sample-web-admin:processResources - Processes main resources.
+sample-web-base:processResources - Processes main resources.
+sample-web-front:processResources - Processes main resources.
+sample-batch:processTestResources - Processes test resources.
+sample-common:processTestResources - Processes test resources.
+sample-domain:processTestResources - Processes test resources.
+sample-web-admin:processTestResources - Processes test resources.
+sample-web-base:processTestResources - Processes test resources.
+sample-web-front:processTestResources - Processes test resources.
+startFakeSmtpServer
+
+BUILD SUCCESSFUL in 924ms
+4 actionable tasks: 1 executed, 3 up-to-date
