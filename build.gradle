@@ -1,9 +1,20 @@
+// 各プロジェクトの依存性管理情報の確認
+// rootプロジェクト
+// gradle -q dependencies
+// サブプロジェクト
+//gradle sample-*:dependencies
+
+
+
 // プロダクトコードではなく、ビルドスクリプト( build.gradle )内で利用するプラグインや依存関係の定義については buildscript に定義
 // https://qiita.com/hatimiti/items/a127311d739c9d3e0045#buildscript-プロパティ
 buildscript {
     // 拡張プロパティの一括設定
     ext {
-        springBootVersion = "2.0.6.RELEASE"
+        // spring-boot-gradle-pluginのバージョンが古いため、Gradle7でビルドすると失敗するので
+        // アップグレードする。
+        // springBootVersion = "2.0.6.RELEASE"
+        springBootVersion = "2.7.2"
         spockVersion = "1.2-groovy-2.5"
         // https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all
         groovyVersion = "3.0.10"
@@ -21,6 +32,7 @@ buildscript {
     repositories {
         mavenCentral()
     }
+    // ビルドスクリプトの依存性関係。プロダクトコードとは関係ない。
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
         classpath "com.github.tntim96:fakesmtp:2.0" // ローカルでダミーのSMTPサーバーを立てる
@@ -31,23 +43,32 @@ buildscript {
 
 // https://docs.gradle.org/current/dsl/org.gradle.api.Project.html
 // https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#org.gradle.api.Project:subprojects(groovy.lang.Closure)
-// subprojects内の設定は各プロジェクト共通に適用される。
+// subprojects内の設定は各サブプロジェクト共通に適用される。
 subprojects {
 
-    plugins {
-        id 'application'
-        id 'groovy'
-        // http://gradle.monochromeroad.com/docs/userguide/idea_plugin.html
-        // IntelliJ IDEAが使用するファイルを生成し、プロジェクトをIDEA(File - Open Project)で開けるようにします。
-        id 'idea'
-        // http://gradle.monochromeroad.com/docs/userguide/eclipse_plugin.html
-        // eclipseのコンテナを指定するために使用。
-        id 'eclipse'
-        id 'org.springframework.boot'
-        // GradleでBOMを実現するためのもの。
-        // https://create-something.hatenadiary.jp/entry/2015/05/08/063000
-        id 'io.spring.dependency-management'
-    }
+// subprojects内ではpluginsは使用できない模様。
+//https://kazamori.jp/blogs/2020/06/30/gradle-multi-project/
+//    plugins {
+//        id 'application'
+//        id 'groovy'
+//        // http://gradle.monochromeroad.com/docs/userguide/idea_plugin.html
+//        // IntelliJ IDEAが使用するファイルを生成し、プロジェクトをIDEA(File - Open Project)で開けるようにします。
+//        id 'idea'
+//        // http://gradle.monochromeroad.com/docs/userguide/eclipse_plugin.html
+//        // eclipseのコンテナを指定するために使用。
+//        id 'eclipse'
+//        id 'org.springframework.boot'
+//        // GradleでBOMを実現するためのもの。
+//        // https://create-something.hatenadiary.jp/entry/2015/05/08/063000
+//        id 'io.spring.dependency-management'
+//    }
+    // 代わりにapply pluginを使用する。
+    apply plugin: "application"
+    apply plugin: "groovy"
+    apply plugin: "idea"
+    apply plugin: "eclipse"
+    apply plugin: "org.springframework.boot"
+    apply plugin: "io.spring.dependency-management"
 
 // 古い記述としてコメント化
 // apply plugin: "java"
@@ -91,7 +112,7 @@ subprojects {
 
     dependencyManagement {
         imports {
-            // https://spring.pleiades.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/
+            // https://spring.pleiades.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#managing-dependencies.dependency-management-plugin.using-in-isolation
             //
             mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
         }
@@ -148,20 +169,26 @@ task startFakeSmtpServer(type: JavaExec) {
     mainClass = "com.nilhcem.fakesmtp.FakeSMTP"
 }
 
-plugins {
-    id 'docker-compose'
-}
-//apply plugin: "docker-compose"
+// pluginsブロックの前に記述できるスクリプトブロックは以下のみ
+// buildscript {}, pluginManagement {} and other plugins {} script blocks
+//plugins {
+//    id 'docker-compose'
+//}
+// 代わりにapply pluginを使用する
+apply plugin: "docker-compose"
 
 dockerCompose {
     // 使用するdocker-composeのパスの指定。
     useComposeFiles = ["docker/docker-compose.yml"]
 }
 
-plugins {
-    id 'com.sample.CodeGenPlugin'
-}
-// apply plugin: com.sample.CodeGenPlugin
+// pluginsブロックの前に記述できるスクリプトブロックは以下のみ
+// buildscript {}, pluginManagement {} and other plugins {} script blocks
+//plugins {
+//    id 'com.sample.CodeGenPlugin'
+//}
+// 代わりにapply pluginを使用する
+apply plugin: com.sample.CodeGenPlugin
 // https://spring-boot-doma2-sample.readthedocs.io/ja/master/codegen.html
 
 codegen {
