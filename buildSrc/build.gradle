@@ -1,7 +1,9 @@
 buildscript {
     ext {
-        springBootVersion = "2.0.6.RELEASE"
-        groovyVersion = "2.5.3"
+        // springBootVersion = "2.0.6.RELEASE"
+        springBootVersion = "2.7.2"
+        // groovyVersion = "2.5.3"
+        groovyVersion = "3.0.10"
     }
     repositories {
         mavenCentral()
@@ -18,7 +20,7 @@ apply plugin: "io.spring.dependency-management"
 repositories {
     mavenLocal()
     mavenCentral()
-//    jcenter()
+    // jcenter()
 }
 
 dependencyManagement {
