@@ -1,7 +1,8 @@
+// 実行可能jarの作成
 bootJar {
     enabled = false
 }
-
+// ライブラリ配布用jarの作成
 jar {
     enabled = true
 }
