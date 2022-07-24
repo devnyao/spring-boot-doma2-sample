@@ -24,7 +24,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-security"
     implementation "org.springframework.boot:spring-boot-starter-jetty"
     implementation "org.springframework.session:spring-session-jdbc" // セッション格納先にDBを使う場合
-    //compile "org.springframework.boot:spring-boot-starter-data-redis" // セッション格納先にredisを使う場合
+    // implementation "org.springframework.boot:spring-boot-starter-data-redis" // セッション格納先にredisを使う場合
     implementation "org.springframework.boot:spring-boot-starter-aop"
     implementation "org.springframework.boot:spring-boot-starter-validation"
     implementation "org.springframework.boot:spring-boot-starter-mail"

@@ -1,7 +1,14 @@
+// 実行可能jarの構築
+// https://spring.pleiades.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#packaging-executable.jars
 bootJar {
+    // 起動スクリプトの追加
+    // https://spring.pleiades.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#packaging-executable.configuring.launch-script
     launchScript()
 }
-
+// カスタムコンフィグレーションの定義
+// http://gradle.monochromeroad.com/docs/userguide/dependency_management.html
+// dev-toolsを使用する際のテンプレートどおり。
+// https://docs.spring.io/spring-boot/docs/2.2.2.RELEASE/reference/htmlsingle/#using-boot-devtools
 configurations {
     developmentOnly
     runtimeClasspath {
