@@ -1,3 +1,5 @@
+// ルートプロジェクトの明記
+rootProject.name = 'sample-boot-doma2-sample'
 // サブプロジェクトの登録
 include "sample-common", "sample-domain", "sample-web-base", "sample-web-front", "sample-web-admin", "sample-batch"
 

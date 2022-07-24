@@ -10,6 +10,7 @@ configurations {
 }
 
 dependencies {
+    // サブプロジェクト間の依存関係の宣言
     implementation project(":sample-common")
     implementation project(":sample-domain")
     implementation project(":sample-web-base")
