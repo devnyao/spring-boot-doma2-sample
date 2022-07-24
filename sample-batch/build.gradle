@@ -1,3 +1,4 @@
+// bootRunタスク起動時の引数処理
 bootRun {
     // プロジェクトプロパティを引数として渡す
     if (project.hasProperty("args")) {
