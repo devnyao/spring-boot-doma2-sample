@@ -11,6 +11,8 @@ configurations {
 
 dependencies {
     // サブプロジェクト間の依存関係の宣言
+    // 依存先を宣言する
+    // https://docs.gradle.org/current/userguide/declaring_dependencies_between_subprojects.html
     implementation project(":sample-common")
     implementation project(":sample-domain")
     implementation project(":sample-web-base")
